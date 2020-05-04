@@ -28,6 +28,11 @@
   color: #61dafb;
 }
 
+.scotchy-navbar {
+  background-image: url('./Assets/plaid.jpg');
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -36,3 +41,4 @@
     transform: rotate(360deg);
   }
 }
+

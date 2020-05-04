@@ -1,0 +1,16 @@
+//Custom stuff here
+
+.ui-paginator .ui-paginator-pages .ui-state-active{
+  background-color:red!important;
+  color: white!important;
+}
+
+$body-bg: #f2fff4;
+$body-color: #111;
+
+.bg-primary {
+  background-color: green;
+}
+
+// Bootstrap and its default variables
+@import "../node_modules/bootstrap/scss/bootstrap";

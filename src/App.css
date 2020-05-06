@@ -28,11 +28,6 @@
   color: #61dafb;
 }
 
-.scotchy-navbar {
-  background-image: url('./Assets/plaid.jpg');
-}
-
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -42,3 +37,55 @@
   }
 }
 
+/* Navbar styling */
+
+.scotchy-navbar {
+  background-image: url('./Assets/plaid.jpg');
+}
+
+.nav-link.active {
+  font-weight: bold;
+}
+
+/* Table Styling */
+
+
+.p-datatable.p-datatable-scotchy {
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.2), 0 10px 10px 0 rgba(0, 0, 0, 0.14), 0 20px 10px -10px rgba(0, 0, 0, 0.12);
+}
+
+.p-datatable.p-datatable-scotchy .p-datatable-header {
+  border: 0 none;
+  padding: 12px;
+  text-align: left;
+  font-size: 20px;
+}
+
+
+.p-datatable.p-datatable-scotchy .p-datatable-thead > tr > th {
+  border: 0 none;
+  text-align: left;
+}
+
+.p-datatable.p-datatable-scotchy .p-datatable-tbody > tr > td {
+  border: 0 none;
+  cursor: auto;
+}
+
+.p-datatable.p-datatable-scotchy .p-paginator {
+  border: 0 none;
+  padding: 1em;
+}
+
+/*  CARD  */
+
+.p-card.p-card-scotchy {
+  box-shadow: 0 8px 25px 0 rgba(0, 0, 0, 0.2), 0 8px 8px 0 rgba(0, 0, 0, 0.14), 0 15px 8px -8px rgba(0, 0, 0, 0.12);
+  background-color: #f4f4f4;
+}
+
+/* Page header */
+
+.page-header {
+  margin-bottom: 20px;
+}

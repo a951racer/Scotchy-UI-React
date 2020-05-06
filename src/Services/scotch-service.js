@@ -4,8 +4,14 @@ const apiRoot = 'https://scotchy-api-staging.herokuapp.com/api'
 
 export default class ScotchService {
 
-  getScotches() {
-    return axios.get(apiRoot + '/scotches')
+  async getScotches() {
+    let res = await axios.get(apiRoot + '/scotches')
+    return res.data
+  }
+
+  saveScotch(scotch) {
+    console.log("about to put: ")
+    return axios.put(apiRoot + `/scotches/${scotch.id}`, scotch)
     .then(res => res.data)
   }
 
@@ -19,9 +25,18 @@ export default class ScotchService {
     .then(res => res.data)
   }
 
-  getPrices() {
-    return axios.get(apiRoot + '/prices')
-    .then(res => res.data)
+  async getPrices() {
+    const res = await axios.get(apiRoot + '/prices')
+    let prices = res.data
+    prices = prices.map((price) => {
+      if (price.price) price.price = '$' + price.price.toFixed(2)
+      if (price.tax) price.tax = '$' + price.tax.toFixed(2)
+      if (price.shipping) price.shipping = '$' + price.shipping.toFixed(2)
+      if (price.total) price.total = '$' + price.total.toFixed(2)
+      return price
+    })
+    console.log("prices: ", prices)
+    return prices
   }
 
   getStyles() {

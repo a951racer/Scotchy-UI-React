@@ -1,13 +1,13 @@
 import React from 'react'
-import Layout from './Layouts/logged-in'
+import Navigator from 'Layouts/Navigator'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'primereact/resources/themes/nova-light/theme.css';
+import './Styles/scotchy/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 
 function App() {
   return (
-    <Layout></Layout>
+    <Navigator />
   );
 }
 

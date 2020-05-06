@@ -11,11 +11,12 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-import Home from '../Components/home'
-import Tastings from '../Components/tastings'
-import Lists from '../Components/lists'
-import Prices from '../Components/prices'
-import Settings from '../Components/settings'
+import Home from 'Components/Home'
+import TastingList from 'Components/TastingList'
+import ListList from 'Components/ListList'
+import PriceList from 'Components/PriceList'
+import Settings from 'Components/Settings'
+import PageHeader from '../Components/PageHeader';
 
 class Navigator extends Component {
   render() { 
@@ -60,15 +61,19 @@ class Navigator extends Component {
                     <Home />
                   </Route>
                   <Route exact path="/tastings">
-                    <Tastings />
+                    <PageHeader title="Tasting Notes" />
+                    <TastingList />
                   </Route>
                   <Route exact path="/lists">
-                    <Lists />
+                    <PageHeader title="Lists of Scotches" />
+                    <ListList />
                   </Route>
                   <Route exact path="/prices">
-                    <Prices />
+                    <PageHeader title="Scotch Prices" />
+                    <PriceList />
                   </Route>
                   <Route exact path="/settings">
+                    <PageHeader title="App Settings" />
                     <Settings />
                   </Route>
                 </Switch>

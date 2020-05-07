@@ -3,7 +3,7 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Rating } from 'primereact/rating';
 
-import 'App.css';
+import '../App.css';
 import ScotchService from '../Services/scotch-service'
 
 class TastingList extends Component {

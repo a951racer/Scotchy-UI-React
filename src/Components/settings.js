@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { TabView, TabPanel } from 'primereact/tabview';
 
-import 'App.css';
+import '../App.css';
 import StyleList from './StyleList'
 import RegionList from './RegionList';
 

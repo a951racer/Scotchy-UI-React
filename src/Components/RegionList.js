@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 
-import 'App.css';
+import '../App.css';
 import ScotchService from '../Services/scotch-service'
 
 class RegionList extends Component {

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 import '../App.css'
-import ScotchList from 'Components/ScotchList'
-import Login from 'Components/Login'
-import PageHeader from 'Components/PageHeader'
+import ScotchList from './ScotchList'
+import Login from './Login'
+import PageHeader from './PageHeader'
 
 class Home extends Component {
   constructor() {

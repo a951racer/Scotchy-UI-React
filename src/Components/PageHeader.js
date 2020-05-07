@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card} from 'primereact/card';
+import { Card } from 'primereact/card';
 import 'App.css'
 
 const PageHeader = (props) => {

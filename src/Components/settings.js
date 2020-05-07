@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { TabView, TabPanel } from 'primereact/tabview';
 
 import 'App.css';
-import StyleList from 'Components/StyleList'
-import RegionList from 'Components/RegionList';
+import StyleList from './StyleList'
+import RegionList from './RegionList';
 
 class Settings extends Component {
 

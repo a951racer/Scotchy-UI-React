@@ -4,7 +4,7 @@ import { Column } from 'primereact/column';
 import { Rating } from 'primereact/rating';
 
 import 'App.css';
-import ScotchService from 'Services/scotch-service'
+import ScotchService from '../Services/scotch-service'
 
 class TastingList extends Component {
     

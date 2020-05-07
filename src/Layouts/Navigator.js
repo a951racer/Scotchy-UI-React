@@ -11,11 +11,11 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-import Home from 'Components/Home'
-import TastingList from 'Components/TastingList'
-import ListList from 'Components/ListList'
-import PriceList from 'Components/PriceList'
-import Settings from 'Components/Settings'
+import Home from '../Components/Home'
+import TastingList from '../Components/TastingList'
+import ListList from '../Components/ListList'
+import PriceList from '../Components/PriceList'
+import Settings from '../Components/Settings'
 import PageHeader from '../Components/PageHeader';
 
 class Navigator extends Component {

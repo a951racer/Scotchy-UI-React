@@ -9,7 +9,7 @@ import { ProgressSpinner } from 'primereact/progressspinner';
 import { Growl } from 'primereact/growl';
 
 import 'App.css'
-import ScotchService from 'Services/scotch-service'
+import ScotchService from '../Services/scotch-service'
 
 class ScotchList extends Component {
     

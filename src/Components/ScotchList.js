@@ -7,16 +7,17 @@ import { TriStateCheckbox } from 'primereact/tristatecheckbox';
 import { Dropdown } from 'primereact/dropdown';
 import { ProgressSpinner } from 'primereact/progressspinner';
 import { Growl } from 'primereact/growl';
+import { connect } from 'react-redux'
+import { fetchScotches } from '../Redux/actions/scotches'
 
 import '../App.css'
-import ScotchService from '../Services/scotch-service'
+import api from '../API/scotch'
 
 class ScotchList extends Component {
     
   constructor(props) {
     super(props);
     this.state = {
-      scotches: [],
       styles: [],
       regions: [],
       inStock: null,
@@ -24,9 +25,8 @@ class ScotchList extends Component {
       style: null,
       region: null,
       expandedRows: null,
-      loading: true
     };
-    this.scotchservice = new ScotchService();
+    this.api = new api();
     this.onEditorValueChange = this.onEditorValueChange.bind(this);
     this.textEditor = this.textEditor.bind(this);
     this.checkboxEditor = this.checkboxEditor.bind(this);
@@ -39,17 +39,15 @@ class ScotchList extends Component {
     this.onRowEditInit = this.onRowEditInit.bind(this);
     this.onRowEditSave = this.onRowEditSave.bind(this);
     this.onRowEditCancel = this.onRowEditCancel.bind(this);
-
-    //this.growl = React.createRef()
   }
   
   async componentDidMount() {
     this.setState({
-      scotches: await this.scotchservice.getScotches(),
-      styles: await this.scotchservice.getStyles(),
-      regions: await this.scotchservice.getRegions(),
+      styles: await this.api.getStyles(),
+      regions: await this.api.getRegions(),
       loading: false
     })
+    this.props.fetchScotches()
   }
 
 // Row Edit Functions
@@ -63,7 +61,7 @@ class ScotchList extends Component {
     console.log("row save: ", event.data)
     delete this.clonedScotches[event.data.id];
     // Save to API
-    this.scotchservice.saveScotch(event.data)
+    this.api.saveScotch(event.data)
     this.growl.show({severity: 'success', summary: 'Saved', detail: 'Cabinet has been updated'});
   }
 
@@ -125,11 +123,11 @@ class ScotchList extends Component {
     let regionFilterInput = <Dropdown value={this.state.region} options={this.state.regions} optionLabel="name" optionValue="name" showClear={true} style={{width: '11em'}} onChange={this.onRegionFilterChange} placeholder="Filter by region"/>
 
     return (
-        this.state.loading ? <span style={{textAlight: 'center'}}><ProgressSpinner/></span> :
+        this.props.isLoading ? <span style={{textAlight: 'center'}}><ProgressSpinner/></span> :
           <>
             <DataTable
               ref={(el) => { this.dt = el; }}
-              value={this.state.scotches}
+              value={this.props.scotches}
               paginator={true}
               rows={20}
               rowHover={true}
@@ -155,4 +153,11 @@ class ScotchList extends Component {
   }
 }
 
-export default ScotchList;
+const mapDispatchToProps = { fetchScotches }
+
+const mapStateToProps = state => ({
+  scotches: state.scotches.scotches,
+  isLoading: state.scotches.isLoading
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ScotchList)

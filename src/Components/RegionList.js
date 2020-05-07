@@ -3,7 +3,7 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 
 import '../App.css';
-import ScotchService from '../Services/scotch-service'
+import api from '../API/scotch'
 
 class RegionList extends Component {
     
@@ -12,11 +12,11 @@ class RegionList extends Component {
     this.state = {
       regions: []
     };
-    this.scotchservice = new ScotchService()
+    this.api = new api()
   }
   
   componentDidMount() {
-    this.scotchservice.getRegions().then(data => this.setState({regions: data}));
+    this.api.getRegions().then(data => this.setState({regions: data}));
   }
 
   render () {

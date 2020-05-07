@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const apiRoot = 'https://scotchy-api-staging.herokuapp.com/api'
 
-export default class ScotchService {
+export default class UserAPI {
 
   async getScotches() {
     let res = await axios.get(apiRoot + '/scotches')

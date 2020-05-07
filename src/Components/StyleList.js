@@ -3,7 +3,7 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 
 import '../App.css';
-import ScotchService from '../Services/scotch-service'
+import api from '../API/scotch'
 
 class StyleList extends Component {
     
@@ -12,11 +12,11 @@ class StyleList extends Component {
     this.state = {
       styles: []
     };
-    this.scotchservice = new ScotchService()
+    this.api = new api()
   }
   
   componentDidMount() {
-    this.scotchservice.getStyles().then(data => this.setState({styles: data}));
+    this.api.getStyles().then(data => this.setState({styles: data}));
   }
 
   render () {

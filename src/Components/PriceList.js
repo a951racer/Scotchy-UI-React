@@ -3,18 +3,18 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 
 import '../App.css';
-import ScotchService from '../Services/scotch-service'
+import api from '../API/scotch'
 
 class PriceList extends Component {
     
   constructor(props) {
     super(props);
     this.state = {prices: []};
-    this.scotchservice = new ScotchService()
+    this.api = new api()
   }
   
   componentDidMount() {
-    this.scotchservice.getPrices().then(data => this.setState({prices: data}));
+    this.api.getPrices().then(data => this.setState({prices: data}));
   }
 
   render () {

@@ -4,18 +4,18 @@ import { Column } from 'primereact/column';
 import { Rating } from 'primereact/rating';
 
 import '../App.css';
-import ScotchService from '../Services/scotch-service'
+import api from '../API/scotch'
 
 class TastingList extends Component {
     
   constructor(props) {
     super(props);
     this.state = {tastings: []};
-    this.scotchservice = new ScotchService()
+    this.api = new api()
   }
   
   componentDidMount() {
-    this.scotchservice.getTastings().then(data => this.setState({tastings: data}));
+    this.api.getTastings().then(data => this.setState({tastings: data}));
   }
 
 //Templates

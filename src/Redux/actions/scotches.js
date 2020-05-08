@@ -24,9 +24,8 @@ export const scotchesReceived = (scotches) => {
 }
 
 export const fetchScotches = () => async dispatch => {
-  console.log("action: onLoginSubmit")
   dispatch(requestScotches())
   const scotches = await api.getScotches()
-  dispatch(scotchesReceived(scotches)) // pretend api call succeeded
+  dispatch(scotchesReceived(scotches))
 }
   

@@ -1,26 +1,21 @@
 import React, { Component } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+import { connect } from 'react-redux'
+import { fetchPrices } from '../Redux/actions/prices'
 
 import '../App.css';
-import api from '../API/scotch'
 
 class PriceList extends Component {
     
-  constructor(props) {
-    super(props);
-    this.state = {prices: []};
-    this.api = new api()
-  }
-  
   componentDidMount() {
-    this.api.getPrices().then(data => this.setState({prices: data}));
+    this.props.fetchPrices()
   }
 
   render () {
     return (
       <>
-        <DataTable value={this.state.prices} paginator={true} rows={20} autoLayout={true} dataKey="id" className="p-datatable-scotchy">
+        <DataTable value={this.props.prices} paginator={true} rows={20} autoLayout={true} dataKey="id" className="p-datatable-scotchy">
           <Column field="dramName" header="Dram" sortable={true} filter={true} filterMatchMode="contains"/>
           <Column field="location" header="Location" sortable={true} filter={true} filterMatchMode="contains"/>
           <Column field="price" header="Price" sortable={true} style={{textAlign: 'right'}} />
@@ -34,4 +29,13 @@ class PriceList extends Component {
   }
 }
 
-export default PriceList;
+const mapDispatchToProps = {
+  fetchPrices
+}
+
+const mapStateToProps = state => ({
+  prices: state.prices.prices,
+  isLoading: state.prices.isLoading
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(PriceList)

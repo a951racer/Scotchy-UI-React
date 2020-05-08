@@ -11,7 +11,6 @@ const scotches = (state = initialState, action) => {
       return { isLoading: true }
     }
     case UPDATE_SCOTCH: {
-      console.log("reducer: login success")
       return { userStatus: 'loggedIn' }  // plus user attributes, token etc. from action.payload
     }
     case SCOTCHES_RECEIVED: {

@@ -1,22 +1,22 @@
-import { REQUEST_TASTINGS, UPDATE_TASTING, TASTINGS_RECEIVED } from '../actionTypes/tastings'
+import { REQUEST_STYLES, UPDATE_STYLE, STYLES_RECEIVED } from '../actionTypes/styles'
 
 const initialState = {
-  tastings: [],
+  styles: [],
   isLoading: false
 };
 
-const tastings = (state = initialState, action) => {
+const styles = (state = initialState, action) => {
   switch (action.type) {
-    case REQUEST_TASTINGS: {
+    case REQUEST_STYLES: {
       return { isLoading: true }
     }
-    case UPDATE_TASTING: {
+    case UPDATE_STYLE: {
       return { userStatus: 'loggedIn' }  // plus user attributes, token etc. from action.payload
     }
-    case TASTINGS_RECEIVED: {
+    case STYLES_RECEIVED: {
       return {
         isLoading: false,
-        tastings: action.tastings
+        styles: action.styles
       }
     }
     default:
@@ -24,4 +24,4 @@ const tastings = (state = initialState, action) => {
   }
 }
 
-export default tastings
+export default styles

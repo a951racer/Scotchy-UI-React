@@ -1,22 +1,22 @@
-import { REQUEST_TASTINGS, UPDATE_TASTING, TASTINGS_RECEIVED } from '../actionTypes/tastings'
+import { REQUEST_REGIONS, UPDATE_REGION, REGIONS_RECEIVED } from '../actionTypes/regions'
 
 const initialState = {
-  tastings: [],
+  regions: [],
   isLoading: false
 };
 
-const tastings = (state = initialState, action) => {
+const regions = (state = initialState, action) => {
   switch (action.type) {
-    case REQUEST_TASTINGS: {
+    case REQUEST_REGIONS: {
       return { isLoading: true }
     }
-    case UPDATE_TASTING: {
+    case UPDATE_REGION: {
       return { userStatus: 'loggedIn' }  // plus user attributes, token etc. from action.payload
     }
-    case TASTINGS_RECEIVED: {
+    case REGIONS_RECEIVED: {
       return {
         isLoading: false,
-        tastings: action.tastings
+        regions: action.regions
       }
     }
     default:
@@ -24,4 +24,4 @@ const tastings = (state = initialState, action) => {
   }
 }
 
-export default tastings
+export default regions

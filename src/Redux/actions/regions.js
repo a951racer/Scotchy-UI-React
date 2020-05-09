@@ -23,7 +23,9 @@ export const regionsReceived = (regions) => {
   }
 }
 
-export const fetchRegions = () => async dispatch => {
+export const fetchRegions = () => async (dispatch, getState) => {
+  const state = getState()
+  if (state.regions.regions && state.regions.regions.length > 0) return
   dispatch(requestRegions())
   const regions = await api.getRegions()
   dispatch(regionsReceived(regions))

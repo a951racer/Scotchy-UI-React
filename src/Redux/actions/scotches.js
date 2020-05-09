@@ -23,7 +23,9 @@ export const scotchesReceived = (scotches) => {
   }
 }
 
-export const fetchScotches = () => async dispatch => {
+export const fetchScotches = () => async (dispatch, getState) => {
+  const state = getState()
+  if (state.scotches.scotches && state.scotches.scotches.length > 0) return
   dispatch(requestScotches())
   const scotches = await api.getScotches()
   dispatch(scotchesReceived(scotches))

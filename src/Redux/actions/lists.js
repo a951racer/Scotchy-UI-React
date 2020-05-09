@@ -23,7 +23,9 @@ export const listsReceived = (lists) => {
   }
 }
 
-export const fetchLists = () => async dispatch => {
+export const fetchLists = () => async (dispatch, getState) => {
+  const state = getState()
+  if (state.lists.lists && state.lists.lists.length > 0) return
   dispatch(requestLists())
   const lists = await api.getLists()
   dispatch(listsReceived(lists))

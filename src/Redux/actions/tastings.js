@@ -23,7 +23,9 @@ export const tastingsReceived = (tastings) => {
   }
 }
 
-export const fetchTastings = () => async dispatch => {
+export const fetchTastings = () => async (dispatch, getState) => {
+  const state = getState()
+  if (state.tastings.tastings && state.tastings.tastings.length > 0) return
   dispatch(requestTastings())
   const tastings = await api.getTastings()
   dispatch(tastingsReceived(tastings))

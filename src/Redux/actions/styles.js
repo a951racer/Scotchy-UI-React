@@ -23,7 +23,9 @@ export const stylesReceived = (styles) => {
   }
 }
 
-export const fetchStyles = () => async dispatch => {
+export const fetchStyles = () => async (dispatch, getState) => {
+  const state = getState()
+  if (state.styles.styles && state.styles.styles.length > 0) return
   dispatch(requestStyles())
   const styles = await api.getStyles()
   dispatch(stylesReceived(styles))

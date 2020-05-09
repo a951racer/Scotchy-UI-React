@@ -23,7 +23,9 @@ export const pricesReceived = (prices) => {
   }
 }
 
-export const fetchPrices = () => async dispatch => {
+export const fetchPrices = () => async (dispatch, getState) => {
+  const state = getState()
+  if (state.prices.prices && state.prices.prices.length > 0) return
   dispatch(requestPrices())
   const prices = await api.getPrices()
   dispatch(pricesReceived(prices))

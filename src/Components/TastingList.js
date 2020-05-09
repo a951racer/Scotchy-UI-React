@@ -2,20 +2,15 @@ import React, { Component } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Rating } from 'primereact/rating';
+import { connect } from 'react-redux'
+import { fetchTastings } from '../Redux/actions/tastings'
 
 import '../App.css';
-import ScotchService from '../Services/scotch-service'
 
 class TastingList extends Component {
     
-  constructor(props) {
-    super(props);
-    this.state = {tastings: []};
-    this.scotchservice = new ScotchService()
-  }
-  
   componentDidMount() {
-    this.scotchservice.getTastings().then(data => this.setState({tastings: data}));
+    this.props.fetchTastings()
   }
 
 //Templates
@@ -26,7 +21,7 @@ class TastingList extends Component {
   render () {
     return (
       <>
-        <DataTable value={this.state.tastings} paginator={true} rows={20} autoLayout={true} dataKey="id" className="p-datatable-scotchy">
+        <DataTable value={this.props.tastings} paginator={true} rows={20} autoLayout={true} dataKey="id" className="p-datatable-scotchy">
           <Column field="dramName" header="Dram" sortable={true} filter={true} filterMatchMode="contains"/>
           <Column field="rating" header="Rating" sortable={true} filter={true} filterMatchMode="contains" body={this.ratingTemplate} />
           <Column field="location" header="Location" sortable={true} filter={true} filterMatchMode="contains"/>
@@ -37,4 +32,13 @@ class TastingList extends Component {
   }
 }
 
-export default TastingList;
+const mapDispatchToProps = {
+  fetchTastings
+}
+
+const mapStateToProps = state => ({
+  tastings: state.tastings.tastings,
+  isLoading: state.tastings.isLoading
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(TastingList)

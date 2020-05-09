@@ -6,6 +6,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import  { Button } from 'primereact/button';
+import { connect } from 'react-redux'
+import { onLoginSubmit } from '../Redux/actions/auth'
 
 class Login extends Component {
 
@@ -15,11 +17,6 @@ class Login extends Component {
       username: '',
       password: ''
     }
-    //this.usernameRef = React.createRef()
-  }
-
-  componentDidMount() {
-    //this.usernameRef.current.focus();
   }
 
   render() {
@@ -41,7 +38,6 @@ class Login extends Component {
                     id="username"
                     value={this.state.username}
                     onChange={(e) => this.setState({username: e.target.value})}
-                    //ref={this.usernameRef}  
                   />
                 </div>
                 <div style={{marginBottom: '1em'}}>
@@ -49,7 +45,7 @@ class Login extends Component {
                   <Password value={this.state.password} onChange={(e) => this.setState({password: e.target.value})} />
                 </div>
                 <div>
-                  <Button label="Login" icon="pi pi-check" iconPos="right" onClick={this.props.onSubmit}/>
+                  <Button label="Login" icon="pi pi-check" iconPos="right" onClick={this.props.onLoginSubmit}/>
                 </div>
               </Col>
             </Row>
@@ -60,4 +56,9 @@ class Login extends Component {
   }
 }
 
-export default Login
+const mapDispatchToProps = { onLoginSubmit }
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Login)

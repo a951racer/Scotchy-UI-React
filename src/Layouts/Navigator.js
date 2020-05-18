@@ -12,9 +12,9 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 import Home from '../Components/Home'
-import TastingList from '../Components/TastingList'
-import ListList from '../Components/ListList'
-import PriceList from '../Components/PriceList'
+import TastingNoteList from '../Components/TastingNote/TastingNoteList'
+import ListList from '../Components/List/ListList'
+import PriceList from '../Components/Price/PriceList'
 import Settings from '../Components/Settings'
 import PageHeader from '../Components/PageHeader';
 
@@ -23,7 +23,10 @@ class Navigator extends Component {
     return (
       <Router>
         <Navbar className="navbar navbar-dark scotchy-navbar">
-          <Navbar.Brand href="/home">Scotchy</Navbar.Brand>
+          <Navbar.Brand href="/home">
+            <img src="logo-small.png" alt="Angus McScotcy III" height="60px" width="60px"/>
+            Scotchy
+          </Navbar.Brand>
           <Nav className="ml-auto">
             <LinkContainer to="/home">
               <Nav.Item>
@@ -32,7 +35,7 @@ class Navigator extends Component {
             </LinkContainer>
             <LinkContainer to="/tastings">
               <Nav.Item>
-                <Nav.Link href="/tastings">Tastings</Nav.Link>
+                <Nav.Link href="/tastings">Tasting Notes</Nav.Link>
               </Nav.Item>
             </LinkContainer>
             <LinkContainer to="/lists">
@@ -62,7 +65,7 @@ class Navigator extends Component {
                   </Route>
                   <Route exact path="/tastings">
                     <PageHeader title="Tasting Notes" />
-                    <TastingList />
+                    <TastingNoteList />
                   </Route>
                   <Route exact path="/lists">
                     <PageHeader title="Lists of Scotches" />

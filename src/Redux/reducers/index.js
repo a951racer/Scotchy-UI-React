@@ -3,7 +3,7 @@ import auth from './auth'
 import scotches from './scotches'
 import styles from './styles'
 import regions from './regions'
-import tastings from './tastings'
+import tastingNotes from './tastingNotes'
 import lists from './lists'
 import prices from './prices'
 
@@ -12,7 +12,7 @@ export default combineReducers({
   scotches,
   styles,
   regions,
-  tastings,
+  tastingNotes,
   lists,
   prices
 })

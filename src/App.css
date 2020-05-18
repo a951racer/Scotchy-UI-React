@@ -89,3 +89,25 @@
 .page-header {
   margin-bottom: 20px;
 }
+
+.scotchy-button {
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
+}
+
+.scotchy-form-label {
+  color: darkgreen;
+  font-weight: bold;
+}
+
+.scotchy-rating {
+  color: orange;
+}
+
+.scotchy-icon-link {
+  color: darkgreen
+}
+
+.scotchy-icon-link:hover {
+  color: #17ac00
+}

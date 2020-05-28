@@ -7,7 +7,6 @@ import { Checkbox } from 'primereact/checkbox'
 import { TriStateCheckbox } from 'primereact/tristatecheckbox';
 import { Button } from 'primereact/button'
 import { connect } from 'react-redux'
-//import moment from 'moment'
 import { fetchTastingNotes } from '../../Redux/actions/tastingNotes'
 import NewTastingNoteDialog from './NewTastingNoteDialog'
 import EditTastingNoteDialog from './EditTastingNoteDialog'

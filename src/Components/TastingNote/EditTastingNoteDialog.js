@@ -63,7 +63,7 @@ class EditTastingNoteDialog extends Component {
       <>
         <i className="pi pi-fw pi-pencil scotchy-icon-link" onClick={() => this.setState({showDialog: true})} ></i>
 
-        <Dialog visible={this.state.showDialog} style={{width:'25vw'}} header={'New Tasting Note'} modal={true} footer={dialogFooter} onHide={this.cancel}>
+        <Dialog visible={this.state.showDialog} style={{width:'25vw'}} header={'Edit Tasting Note'} modal={true} footer={dialogFooter} onHide={this.cancel}>
           {
             <div className="p-grid p-fluid">
             <div className="p-col-4 scotchy-form-label"><label htmlFor="scotchId">Dram</label></div>

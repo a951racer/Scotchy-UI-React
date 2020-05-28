@@ -10,7 +10,7 @@ export default class ListAPI {
   }
 
   async saveList(list) {
-    const res = await axios.put(apiRoot + `/${list.id}`, list)
+    const res = await axios.put(apiRoot + `/${list._id}`, list)
     return res.data
   }
 
@@ -20,7 +20,7 @@ export default class ListAPI {
   }
 
   async deleteList(list) {
-    const res = await axios.delete(apiRoot + `/${list.id}`, list)
+    const res = await axios.delete(apiRoot + `/${list._id}`, list)
     return res.data
   }
 }

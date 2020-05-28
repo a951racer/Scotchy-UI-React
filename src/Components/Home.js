@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
 import '../App.css'
-import ScotchList from './ScotchList'
+import ScotchList from './Scotch/ScotchList'
 import Login from './Login'
 import PageHeader from './PageHeader'
 
